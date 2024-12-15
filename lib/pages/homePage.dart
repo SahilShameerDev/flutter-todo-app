@@ -1,5 +1,6 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
+import 'package:todo/utils/todo.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -106,7 +107,7 @@ class _HomePageState extends State<HomePage> {
                 Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
-                  height: 650,
+                  height: 590,
                   width: double.infinity,
                   decoration: const BoxDecoration(
                   color: Colors.white,
@@ -115,12 +116,12 @@ class _HomePageState extends State<HomePage> {
                     topRight: Radius.circular(0),
                   ),
                   ),
-                  child: Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  child: const Padding(
+                  padding: EdgeInsets.all(20.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                    const Text(
+                    Text(
                       'Today',
                       style: TextStyle(
                       fontSize: 18,
@@ -128,68 +129,15 @@ class _HomePageState extends State<HomePage> {
                       color: Color(0xFF716F6F),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20),
 
-                    Container(
-                      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 2,
-                            blurRadius: 5,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Container(
-                                height: 20,
-                                width: 20,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  shape: BoxShape.circle,
-                                  border: Border.all(color: Colors.grey),
-                                ),
-                              ),
-                              const SizedBox(width: 10),
-                              const Text(
-                                'Hello world',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Container(
-                            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                            decoration: BoxDecoration(
-                              color: Colors.green,
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: const Text(
-                              'Daily',
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w300,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    TodoBar( title: 'Hello world',),
 
-                    const SizedBox(height: 20),
 
-                    const Text(
+                    TodoBar(title: 'hi hello',),
+
+                    
+                    Text(
                       'Tomarrow',
                       style: TextStyle(
                       fontSize: 18,
@@ -207,6 +155,32 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+    bottomNavigationBar: BottomNavigationBar(
+      items: const [
+        BottomNavigationBarItem(
+      icon: Icon(Icons.menu),
+      label: ' ',
+        ),
+        BottomNavigationBarItem(
+      icon: Icon(Icons.calendar_today),
+      label: '',
+        ),
+        
+      ],
+      selectedItemColor: const Color(0xFF8789F5),
+      unselectedItemColor: Colors.grey,
+      onTap: (index) {
+        // Handle navigation based on the selected index
+      },
+    ),
+    floatingActionButton: FloatingActionButton(
+      onPressed: () {
+      // Handle button press
+      },
+      backgroundColor: const Color(0xFF8789F5),
+      child: const Icon(Icons.add, color: Colors.white),
+    ),
+     floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked
     );
   }
 }
